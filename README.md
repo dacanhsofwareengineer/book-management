@@ -40,7 +40,7 @@ Web App quản lý sách (Single Page Application) giúp người dùng quản l
 ## Hướng dẫn clone
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/dacanhsofwareengineer/book-management.git
 cd book-management-app
 ```
 
