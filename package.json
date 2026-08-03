@@ -1,0 +1,18 @@
+{
+  "name": "book-management-app",
+  "version": "1.0.0",
+  "description": "Web App quản lý sách bằng Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/css/main.css --watch",
+    "serve": "live-server --port=8081 --open=index.html",
+    "dev": "npm-run-all --parallel sass serve"
+  },
+  "author": "Antigravity",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.77.0"
+  }
+}

@@ -1,0 +1,355 @@
+/* Cards */
+.stat-card {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    padding: 16px;
+    text-align: center;
+    
+    &__title {
+        font-size: 14px;
+        color: $color-text-light;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+    
+    &__value {
+        font-size: 28px;
+        font-weight: 700;
+        color: $color-primary;
+    }
+}
+
+.book-card {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform $transition-speed, box-shadow $transition-speed;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    &__cover {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        background-color: #eee;
+    }
+    
+    &__content {
+        padding: 12px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        @include text-truncate(2);
+    }
+    
+    &__author {
+        font-size: 12px;
+        color: $color-text-light;
+        margin-bottom: 4px;
+        @include text-truncate(1);
+    }
+    
+    &__year {
+        font-size: 12px;
+        color: $color-text-light;
+        margin-bottom: 8px;
+    }
+    
+    &__footer {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+    &--read {
+        background-color: rgba($color-success, 0.1);
+        color: $color-success;
+    }
+    
+    &--unread {
+        background-color: rgba($color-warning, 0.1);
+        color: $color-warning;
+    }
+}
+
+/* Dropdown menu */
+.menu-dropdown {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    
+    &__btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid $color-border;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        @include flex-center;
+        cursor: pointer;
+        font-size: 16px;
+        color: $color-text;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background $transition-speed;
+        
+        &:hover {
+            background: $color-surface;
+        }
+    }
+    
+    &__content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: $color-surface;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 10;
+        padding: 4px 0;
+        
+        &.is-active {
+            display: block;
+        }
+    }
+    
+    &__item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 8px 16px;
+        background: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        color: $color-text;
+        
+        &:hover {
+            background: $color-hover;
+        }
+        
+        &--danger {
+            color: $color-danger;
+            
+            &:hover {
+                background: rgba($color-danger, 0.1);
+            }
+        }
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all $transition-speed;
+    font-family: $font-family;
+    
+    &--primary {
+        background-color: $color-primary;
+        color: #fff;
+        
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    
+    &--secondary {
+        background-color: transparent;
+        color: $color-text;
+        border: 1px solid $color-border;
+        
+        &:hover {
+            background-color: $color-hover;
+        }
+    }
+    
+    &--danger {
+        background-color: $color-danger;
+        color: #fff;
+        
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    
+    &--icon {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border-radius: 4px;
+        border: 1px solid $color-border;
+        background: $color-surface;
+        
+        &:hover:not(:disabled) {
+            background: $color-hover;
+        }
+        
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        &.active {
+            background: $color-primary;
+            color: #fff;
+            border-color: $color-primary;
+        }
+    }
+}
+
+/* Inputs */
+.input, .select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    font-size: 14px;
+    font-family: $font-family;
+    color: $color-text;
+    background-color: $color-surface;
+    outline: none;
+    transition: border-color $transition-speed;
+    
+    &:focus {
+        border-color: $color-primary;
+    }
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    
+    &.is-active {
+        display: flex;
+    }
+    
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+    
+    &__content {
+        position: relative;
+        background: $color-surface;
+        border-radius: $border-radius;
+        padding: 24px;
+        width: 100%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        
+        &--small {
+            max-width: 400px;
+        }
+    }
+    
+    &__title {
+        font-size: 18px;
+        margin-bottom: 16px;
+        color: $color-primary;
+    }
+    
+    &__text {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+    
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 24px;
+    }
+}
+
+/* Forms */
+.form {
+    &__group {
+        margin-bottom: 16px;
+    }
+    
+    &__error {
+        display: block;
+        color: $color-danger;
+        font-size: 12px;
+        margin-top: 4px;
+        min-height: 18px;
+    }
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+/* Typography */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: $color-primary;
+}
+
+.recommendations-grid {
+    margin-bottom: 24px;
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 24px;
+}

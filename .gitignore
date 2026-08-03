@@ -1,0 +1,5 @@
+# Thư mục chứa các gói thư viện phụ thuộc (Rất nặng, không đẩy lên Git)
+node_modules/
+
+# File khóa phiên bản thư viện (Bỏ qua theo yêu cầu riêng của dự án)
+yarn.lock
